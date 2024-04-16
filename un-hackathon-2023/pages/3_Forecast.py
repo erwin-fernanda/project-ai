@@ -8,14 +8,14 @@ from utils import machine_learning as ml
 sta, stb, stc = st.columns(3)
 
 with stb:
-    stb.image('./images/un-datathon.png')
+    stb.image('./un-hackathon-2023/images/un-datathon.png')
 
 
 st.markdown('<h3 style=\'text-align:center;\'> Forecasting CO2 Emission in 2 Years </h3>',
             unsafe_allow_html=True)
 
-df_europe = pd.read_excel('./dataset/list_europe.xlsx', engine='openpyxl')
-dfs = pd.read_excel('./dataset/final_dataset.xlsx', engine='openpyxl')
+df_europe = pd.read_excel('./un-hackathon-2023/dataset/list_europe.xlsx', engine='openpyxl')
+dfs = pd.read_excel('./un-hackathon-2023/dataset/final_dataset.xlsx', engine='openpyxl')
 
 df_final = dfs[dfs['country'].isin(df_europe['country'])]
 col_data = ['country', 'year', 'oil_consumption', 'renewable_production', 'CO2_emission']

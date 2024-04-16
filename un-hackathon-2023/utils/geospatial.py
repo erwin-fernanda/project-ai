@@ -68,7 +68,7 @@ def get_folium_map(df_merged, column):
                           tiles='OpenStreetMap',
                           zoom_start=2)
 
-    df_shp = gpd.read_file('dataset/world_countries/World_Countries.shp').rename(columns={'COUNTRY': 'country'})
+    df_shp = gpd.read_file('./un-hackathon-2023/dataset/world_countries/World_Countries.shp').rename(columns={'COUNTRY': 'country'})
 
     # Set up Choropleth map object with key on Province
     folium.Choropleth(geo_data=df_shp,
