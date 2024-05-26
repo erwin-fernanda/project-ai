@@ -1,0 +1,51 @@
+{
+  "CM": {
+    "Reason": [
+      "Hal itu bisa terjadi karena",
+      "Penyebabnya adalah",
+      "Salah satu penyebabnya adalah",
+      "Hal itu terjadi karena",
+      "Hal itu disebabkan oleh",
+      "Penyebab dari masalah itu adalah"
+    ],
+    "General Recommendation": [
+      "Saya bisa merekomendasikan langkah-langkah yang bisa dilakukan sebagai berikut: \n",
+      "Anda bisa melakukan hal-hal sebagai berikut: \n",
+      "Anda bisa menerapkan langkah-langkah berikut ini: \n",
+      "Advice dari saya untuk masalah ini adalah sebagai berikut: \n",
+      "Cara untuk menyelesaikan masalah ini yang bisa dicoba sebagai berikut: \n"
+    ],
+    "Specific Recommendation": [
+      "Rekomendasi part number spare-part SOLAR yang bisa digunakan adalah sebagai berikut: \n",
+      "Anda bisa menggunakan SOLAR part number sebagai berikut: \n",
+      "Spare-part SOLAR yang sudah mulai harus dipersiapkan adalah \n"
+    ]
+  },
+  "PM": {
+    "Task List": [
+      "Berikut adalah task list yang harus anda lakukan. \n",
+      "Anda bisa melakukan task list sebagai berikut. \n"
+    ],
+    "Frequency": [
+      "Untuk schedule in bisa anda lakukan setiap ",
+      "Anda bisa melakukan untuk setiap "
+    ],
+    "Tools": [
+      "Anda bisa menggunakan tools seperti "
+    ],
+    "Spare Part": [
+      "Rekomendasi part number spare-part SOLAR yang bisa digunakan adalah sebagai berikut: \n",
+      "Anda bisa menggunakan SOLAR part number sebagai berikut: \n",
+      "Spare-part SOLAR yang sudah mulai harus dipersiapkan adalah \n"
+    ],
+    "Discipline": [
+      "Orang bertanggung jawab untuk hal ini adalah ",
+      "Anda bisa menghubungi ke tim "
+    ]
+  },
+  "DTD": {
+    "Question": [
+      ""
+    ]
+  }
+}

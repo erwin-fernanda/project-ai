@@ -2,7 +2,7 @@ import os
 import time
 import random
 from PIL import Image
-from function import generator_responses as rs
+from function import generator_responses as gr
 
 import streamlit as st
 from streamlit import session_state as state
@@ -15,13 +15,15 @@ st.set_page_config(
 if 'login' not in list(state.keys()):
     state['login'] = False
 
-image = Image.open(f'./image/turbodoc_logo.png')
-sta, stb, stc = st.columns(3)
+state['start'] = True
 
-with stb:
-    st.image(image)
+# image = Image.open(f'./image/turbodoc_logo.png')
+# sta, stb, stc = st.columns(3)
+#
+# with stb:
+#     st.image(image)
 
-st.markdown('<h3 style="text-align: center;">Turbo-Doc Application</h3>', unsafe_allow_html=True)
+st.markdown('<h3 style="text-align: center;">Turbodoc Application</h3>', unsafe_allow_html=True)
 
 if state['login']:
     with st.sidebar:
@@ -44,22 +46,22 @@ if state['login']:
         st.markdown(f'<div style="text-align: justify;">{intro}</div>', unsafe_allow_html=True)
 
     # Initialize chat history and question
-    if "messages" not in st.session_state:
-        st.session_state.messages = []
+    if "messages" not in state:
+        state.messages = []
 
         st1, st2 = st.columns(2)
 
         with st1:
             with st.chat_message("assistant"):
-                st.write_stream(rs.introduction_response())
+                st.write_stream(gr.introduction_response())
 
-    if "question" not in st.session_state:
-        st.session_state.question = ''
+    if "question" not in state:
+        state.question = ''
 
-    margin = [st.columns(2) for i in range(len(st.session_state.messages))]
+    margin = [st.columns(2) for i in range(len(state.messages))]
 
     # Display chat messages from history on app rerun
-    for j, message in enumerate(st.session_state.messages):
+    for j, message in enumerate(state.messages):
         if message["role"] == 'user':
             init = 1
         else:
@@ -72,14 +74,14 @@ if state['login']:
     # Accept user input
     if prompt := st.chat_input("Messages Turbo-Doc"):
 
-        if len(st.session_state.messages) == 0:
+        if len(state.messages) == 0:
             st3, st4 = st.columns(2)
 
             with st3:
                 with st.chat_message("assistant"):
-                    response_1 = st.write_stream(rs.introduction_response())
+                    response_1 = st.write_stream(gr.introduction_response())
 
-            st.session_state.messages.append(
+            state.messages.append(
                 {
                     "role": "assistant",
                     "content": response_1
@@ -87,7 +89,7 @@ if state['login']:
             )
 
         # Add user message to chat history
-        st.session_state.messages.append(
+        state.messages.append(
             {
                 "role": "user",
                 "content": prompt
@@ -104,20 +106,20 @@ if state['login']:
         st7, st8 = st.columns(2)
 
         # Add assistant response to chat history
-        st.session_state.question += ' || ' + prompt
+        # state.question += ' || ' + prompt
 
         try:
-            forward_message = rs.generate_response(st.session_state.question)
+            forward_message = gr.generate_response(state.question)
         except:
-            forward_message = rs.random_response()
+            forward_message = gr.wrong_response()
 
         # Display assistant response in chat message container
         with st7:
             with st.chat_message("assistant"):
-                response_2 = st.write_stream(rs.stream_response(forward_message))
+                response_2 = st.write_stream(gr.stream_response(forward_message))
 
         # Add assistant response to chat history
-        st.session_state.messages.append(
+        state.messages.append(
             {
                 "role": "assistant",
                 "content": response_2

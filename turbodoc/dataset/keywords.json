@@ -1,0 +1,82 @@
+{
+  "CM": {
+    "Reason": [
+        "kenapa",
+        "penyebab",
+        "mengapa",
+        "reason",
+        "cause",
+        "why",
+        "menyebabkan",
+        "sebab",
+        "terjadi"
+    ],
+    "General Recommendation": [
+        "rekomendasi",
+        "saran",
+        "advice",
+        "mengatasi",
+        "menyelesaikan",
+        "cara",
+        "atasi",
+        "solusi",
+        "selesai",
+        "rekomendasinya",
+        "mengatasinya",
+        "caranya",
+        "sarannya"
+    ],
+    "Specific Recommendation": [
+        "spare-part",
+        "spare part",
+        "part",
+        "dibutuhkan",
+        "bagian",
+        "komponen",
+        "spare-partnya",
+        "sparepart",
+        "spares",
+        "parts",
+        "spare"
+    ]
+  },
+  "PM": {
+    "Task List": [
+      "task list",
+      "kerjakan"
+    ],
+    "Frequency": [
+      "berapa",
+      "jam",
+      "frekuensi",
+      "schedule",
+      "jadwal"
+    ],
+    "Tools": [
+      "tools",
+      "alat"
+    ],
+    "Spare Part": [
+        "spare-part",
+        "spare part",
+        "part",
+        "bagian",
+        "komponen",
+        "spare-partnya",
+        "sparepart",
+        "spares",
+        "parts",
+        "spare"
+    ],
+    "Discipline": [
+      "siapa",
+      "bertugas",
+      "bertanggung-jawab"
+    ]
+  },
+  "DTD": {
+    "Questions": [
+      ""
+    ]
+  }
+}

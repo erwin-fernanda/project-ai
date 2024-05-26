@@ -13,7 +13,7 @@ sta, stb, stc = st.columns(3)
 with stb:
     st.image(image)
 
-st.markdown('<h3 style="text-align: center;">Turbo-Doc Application</h3>', unsafe_allow_html=True)
+# st.markdown('<h3 style="text-align: center;">Turbo-Doc Application</h3>', unsafe_allow_html=True)
 
 placeholder = st.empty()
 
