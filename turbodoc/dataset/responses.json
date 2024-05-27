@@ -1,5 +1,18 @@
 {
   "CM": {
+    "Condition": [
+      "Kondisi ini bisa terjadi di",
+      "Kondisi tersebut bisa terjadi di"
+    ],
+    "Type": [
+      "Untuk kondisi tersebut, tipe yang mungkin digunakan adalah"
+    ],
+    "Tag Name": [
+      "Untuk kondisi tersebut, tag name yang mungkin digunakan adalah"
+    ],
+    "Description": [
+      "Description yang cocok untuk menggambarkan kondisi tersebut adalah"
+    ],
     "Reason": [
       "Hal itu bisa terjadi karena",
       "Penyebabnya adalah",

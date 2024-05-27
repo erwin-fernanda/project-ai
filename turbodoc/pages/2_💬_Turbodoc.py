@@ -55,7 +55,7 @@ if state['login']:
             with st.chat_message("assistant"):
                 st.write_stream(gr.introduction_response())
 
-    if "question" not in state:
+    if 'question' not in state:
         state.question = ''
 
     margin = [st.columns(2) for i in range(len(state.messages))]
@@ -106,11 +106,24 @@ if state['login']:
         st7, st8 = st.columns(2)
 
         # Add assistant response to chat history
-        # state.question += ' || ' + prompt
+        state.question += '|' + prompt
 
-        try:
-            forward_message = gr.generate_response(state.question)
-        except:
+        target1 = gr.check_question(state.question)
+        target2 = gr.check_question(prompt)
+
+        state.target = target1
+
+        print(target1)
+        print(target2)
+
+        if target1 != 'Wrong':
+            if target1 == target2:
+                forward_message = gr.generate_response(state.question)
+            else:
+                forward_message = gr.generate_response(prompt)
+                state.question = ''
+                state.target = target2
+        else:
             forward_message = gr.wrong_response()
 
         # Display assistant response in chat message container

@@ -1,5 +1,6 @@
 from function import generator_responses as gr
 import pandas as pd
+import re
 from nlp_id.postag import PosTag
 from nlp_id.lemmatizer import Lemmatizer
 
@@ -25,7 +26,7 @@ from nlp_id.lemmatizer import Lemmatizer
 # print(filtered_question1)
 
 
-message = "Apa saja yang perlu dicek sebelum start up?"
+message = "Apa yang perlu dipersiapan untuk start up?"
 response = gr.generate_response(message)
 
 print(response)

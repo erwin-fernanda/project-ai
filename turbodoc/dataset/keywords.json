@@ -1,5 +1,23 @@
 {
   "CM": {
+    "Condition": [
+      "kondisi",
+      "condition"
+    ],
+    "Type": [
+      "tipe",
+      "type"
+    ],
+    "Tag Name": [
+      "nama tag",
+      "tag name",
+      "tag"
+    ],
+    "Description": [
+      "deskripsi",
+      "description",
+      "gambaran"
+    ],
     "Reason": [
         "kenapa",
         "penyebab",
