@@ -118,19 +118,19 @@ if state['login']:
         if 'target' not in state.keys():
             state.target = target1
 
-        try:
-            if target1 != 'Wrong':
-                if target1 == target2:
-                    forward_message = gr.generate_response(state.question)
-                else:
-                    forward_message = gr.generate_response(prompt)
-                    state.question = ''
-                    state.target = target2
+        # try:
+        if target1 != 'Wrong':
+            if target1 == target2:
+                forward_message = gr.generate_response(state.question)
             else:
-                forward_message = gr.wrong_response()
-        except:
+                forward_message = gr.generate_response(prompt)
+                state.question = ''
+                state.target = target2
+        else:
             forward_message = gr.wrong_response()
-            state.question = "|".join(state.question.split("|")[:-1])
+        # except:
+        #     forward_message = gr.wrong_response()
+        #     state.question = "|".join(state.question.split("|")[:-1])
 
         # Display assistant response in chat message container
         with st7:
