@@ -7,7 +7,11 @@ st.set_page_config(
     page_icon="💬",
 )
 
-image = Image.open(f'./image/turbodoc_logo.png')
+try:
+    image = Image.open(f'./image/turbodoc_logo.png')
+except:
+    image = Image.open(f'./turbodoc/image/turbodoc_logo.png')
+
 sta, stb, stc = st.columns(3)
 
 with stb:
@@ -33,8 +37,6 @@ with placeholder.form(key='Login'):
     state['login'] = submit
 
 if submit:
-    placeholder.empty()
-
     username_ori = st.secrets[state['username']]['username']
     password_ori = st.secrets[state['username']]['password']
 
@@ -48,6 +50,7 @@ else:
 # Main Application
 
 if state['login'] and (username_ori == state['username'] and password_ori == state['password']):
+    placeholder.empty()
     st.success('Login successfully')
 
 elif state['login'] and (username_ori != username or password_ori != password):

@@ -17,7 +17,11 @@ if 'login' not in list(state.keys()):
 
 state['start'] = True
 
-image = Image.open(f'./image/logo_skk_migas.png')
+try:
+    image = Image.open(f'./image/logo_skk_migas.png')
+except:
+    image = Image.open(f'./turbodoc/image/logo_skk_migas.png')
+
 sta, stb, stc = st.columns(3)
 
 with stb:
