@@ -25,8 +25,19 @@ from nlp_id.lemmatizer import Lemmatizer
 # print(stack_statement)
 # print(filtered_question1)
 
+# dataset_PM = pd.read_excel(
+#     'dataset/dataset_turbo-doc.xlsx',
+#     sheet_name='PM',
+#     # header=4
+# )
+#
+# print(''.join(dataset_PM['Task List'].loc[[1, 2, 4]].values))
 
-message = "Apa yang perlu dipersiapan untuk start up?"
+#
+# var = dataset_PM[dataset_PM['Task List'] == 'Periksa dan rekam speed magnetic pickup output voltage. Ini harus dilakukan dengan turbine running.']
+# print(var['Spare Part'].values)
+#
+message = "Apa saja task list yang digunakan oleh schedule 4K?"
 response = gr.generate_response(message)
 
 print(response)

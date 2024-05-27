@@ -40,7 +40,7 @@
       "Anda bisa melakukan task list sebagai berikut. \n"
     ],
     "Frequency": [
-      "Untuk schedule in bisa anda lakukan setiap ",
+      "Untuk schedule kondisi tersebut bisa anda lakukan setiap ",
       "Anda bisa melakukan untuk setiap "
     ],
     "Tools": [
@@ -57,8 +57,9 @@
     ]
   },
   "DTD": {
-    "Question": [
-      ""
+    "Answer": [
+      "Anda bisa melakukan langkah-langkah sebagai berikut: \n",
+      "Berikut adalah langkah-langkah yang bisa Anda terapkan: \n"
     ]
   }
 }

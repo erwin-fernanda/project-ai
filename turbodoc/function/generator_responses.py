@@ -238,6 +238,8 @@ def response_PM(type_question, filtered_question1, target_answering):
 
     filtered_df = None
 
+    print(filtered_question1)
+
     for i, word in enumerate(target_data):
         if i == 0:
             mask = dataset_PM.apply(lambda x: x.map(lambda s: search_string(s, word.lower())))
@@ -252,16 +254,28 @@ def response_PM(type_question, filtered_question1, target_answering):
         target_response = dataset_PM[target_answering][ind[0]]
         result_response = random.choice(responses[type_question][target_answering]) + ' ' + target_response
     else:
+        target_response = ''
+
+        if target_answering == 'Frequency':
+            target_response = dataset_PM[target_answering][ind[0]]
+        elif target_answering == 'Task List':
+            target_response = ''.join([f'({i + 1}) {word} \n' for i, word in enumerate(dataset_PM[target_answering].iloc[ind])])
+
         additional_responses = '/'.join(target_question)
         result_response = random.choice([
-            'Tolong spesifikkan pertanyaan Anda dengan memberikan informasi terkait ' + additional_responses + '.'
+            'Tolong spesifikkan pertanyaan Anda dengan memberikan informasi terkait ' +
+            additional_responses +
+            ' . Namun, karena keterbatasan sistem, kami coba bantu dengan jawaban seperti ini. ' +
+            random.choice(responses[type_question][target_answering]) +
+            target_response + '.'
         ])
 
     return result_response
 
 
-def response_DTD(last_message):
-    result_response = dataset_DTD[dataset_DTD['Question'].str.contains(last_message)]['Answer'].values[0]
+def response_DTD(type_question, last_message):
+    target_response = dataset_DTD[dataset_DTD['Question'].str.contains(last_message)]['Answer'].values[0]
+    result_response = random.choice(responses[type_question]['Answer']) + ' ' + target_response
 
     return result_response
 
@@ -281,11 +295,13 @@ def generate_response(message):
         filtered_question1 = [item[0] for item in tag_question1 if (item[1] == 'NP' or
                                                                     item[1] == 'NNP' or
                                                                     item[1] == 'DP' or
-                                                                    item[1] == 'NN')]
+                                                                    item[1] == 'NN' or
+                                                                    item[1] == 'NUM')]
         filtered_question2 = [item[0] for item in tag_question2 if (item[1] == 'NP' or
                                                                     item[1] == 'NNP' or
                                                                     item[1] == 'DP' or
-                                                                    item[1] == 'NN')]
+                                                                    item[1] == 'NN' or
+                                                                    item[1] == 'NUM')]
 
         type_answering = check_answering(last_message, type_question)
         target_answering = ''
@@ -295,7 +311,7 @@ def generate_response(message):
         elif type_question == 'PM':
             target_answering = response_PM(type_question, filtered_question1, type_answering)
         elif type_question == 'DTD':
-            target_answering = response_DTD(last_message)
+            target_answering = response_DTD(type_question, last_message)
 
         return target_answering
 

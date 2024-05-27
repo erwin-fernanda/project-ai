@@ -17,11 +17,11 @@ if 'login' not in list(state.keys()):
 
 state['start'] = True
 
-# image = Image.open(f'./image/turbodoc_logo.png')
-# sta, stb, stc = st.columns(3)
-#
-# with stb:
-#     st.image(image)
+image = Image.open(f'./image/logo_skk_migas.png')
+sta, stb, stc = st.columns(3)
+
+with stb:
+    st.image(image)
 
 st.markdown('<h3 style="text-align: center;">Turbodoc Application</h3>', unsafe_allow_html=True)
 
@@ -111,20 +111,25 @@ if state['login']:
         target1 = gr.check_question(state.question)
         target2 = gr.check_question(prompt)
 
-        state.target = target1
+        if 'target' not in state.keys():
+            state.target = target1
 
         print(target1)
         print(target2)
 
-        if target1 != 'Wrong':
-            if target1 == target2:
-                forward_message = gr.generate_response(state.question)
+        try:
+            if target1 != 'Wrong':
+                if target1 == target2:
+                    forward_message = gr.generate_response(state.question)
+                else:
+                    forward_message = gr.generate_response(prompt)
+                    state.question = ''
+                    state.target = target2
             else:
-                forward_message = gr.generate_response(prompt)
-                state.question = ''
-                state.target = target2
-        else:
+                forward_message = gr.wrong_response()
+        except:
             forward_message = gr.wrong_response()
+            state.question = "|".join(state.question.split("|")[:-1])
 
         # Display assistant response in chat message container
         with st7:

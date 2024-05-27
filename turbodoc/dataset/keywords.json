@@ -61,10 +61,13 @@
   "PM": {
     "Task List": [
       "task list",
-      "kerjakan"
+      "kerjakan",
+      "list",
+      "sebutkan"
     ],
     "Frequency": [
       "berapa",
+      "lama",
       "jam",
       "frekuensi",
       "schedule",
@@ -89,7 +92,9 @@
     "Discipline": [
       "siapa",
       "bertugas",
-      "bertanggung-jawab"
+      "bertanggung-jawab",
+      "pihak",
+      "orang"
     ]
   },
   "DTD": {
