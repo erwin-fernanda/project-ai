@@ -11,10 +11,7 @@ def clear_cache():
 
 # st.button('Clear Cache', on_click=clear_cache)
 
-try:
-    image = Image.open(f'./image/turbodoc_logo.png')
-except:
-    image = Image.open(f'./turbodoc/image/turbodoc_logo.png')
+image = Image.open(f'./image/turbodoc_logo.png')
 
 sta, stb, stc = st.columns(3)
 

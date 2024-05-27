@@ -7,10 +7,7 @@ st.set_page_config(
     page_icon="💬",
 )
 
-try:
-    image = Image.open(f'./image/turbodoc_logo.png')
-except:
-    image = Image.open(f'./turbodoc/image/turbodoc_logo.png')
+image = Image.open(f'./image/turbodoc_logo.png')
 
 sta, stb, stc = st.columns(3)
 

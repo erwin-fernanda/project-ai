@@ -10,79 +10,41 @@ from nlp_id import stopword
 
 stopwords = stopword.StopWord()
 
-try:
-    dataset_CM = pd.read_excel(
-        'dataset/dataset_turbo-doc.xlsx',
-        sheet_name='CM',
-        engine='openpyxl',
-        header=4
-    )
+dataset_CM = pd.read_excel(
+    'dataset/dataset_turbo-doc.xlsx',
+    sheet_name='CM',
+    engine='openpyxl',
+    header=4
+)
 
-    dataset_PM = pd.read_excel(
-        'dataset/dataset_turbo-doc.xlsx',
-        sheet_name='PM',
-        engine='openpyxl',
-        # header=4
-    )
+dataset_PM = pd.read_excel(
+    'dataset/dataset_turbo-doc.xlsx',
+    sheet_name='PM',
+    engine='openpyxl',
+    # header=4
+)
 
-    dataset_DTD = pd.read_excel(
-        'dataset/dataset_turbo-doc.xlsx',
-        sheet_name='DTD',
-        engine='openpyxl',
-        # header=2
-    )
+dataset_DTD = pd.read_excel(
+    'dataset/dataset_turbo-doc.xlsx',
+    sheet_name='DTD',
+    engine='openpyxl',
+    # header=2
+)
 
-    dataset_all = {
-        'PM': dataset_PM,
-        'CM': dataset_CM,
-        'DTD': dataset_DTD
-    }
+dataset_all = {
+    'PM': dataset_PM,
+    'CM': dataset_CM,
+    'DTD': dataset_DTD
+}
 
-    with open('./dataset/keywords.json') as key:
-        keywords = json.load(key)
+with open('./dataset/keywords.json') as key:
+    keywords = json.load(key)
 
-    with open('./dataset/responses.json') as resp:
-        responses = json.load(resp)
+with open('./dataset/responses.json') as resp:
+    responses = json.load(resp)
 
-    with open('./dataset/stack_text.json') as text:
-        stack_text = json.load(text)
-
-except:
-    dataset_CM = pd.read_excel(
-        './turbodoc/dataset/dataset_turbo-doc.xlsx',
-        sheet_name='CM',
-        engine='openpyxl',
-        header=4
-    )
-
-    dataset_PM = pd.read_excel(
-        './turbodoc/dataset/dataset_turbo-doc.xlsx',
-        sheet_name='PM',
-        engine='openpyxl',
-        # header=4
-    )
-
-    dataset_DTD = pd.read_excel(
-        './turbodoc/dataset/dataset_turbo-doc.xlsx',
-        sheet_name='DTD',
-        engine='openpyxl',
-        # header=2
-    )
-
-    dataset_all = {
-        'PM': dataset_PM,
-        'CM': dataset_CM,
-        'DTD': dataset_DTD
-    }
-
-    with open('./turbodoc/dataset/keywords.json') as key:
-        keywords = json.load(key)
-
-    with open('./turbodoc/dataset/responses.json') as resp:
-        responses = json.load(resp)
-
-    with open('./turbodoc/dataset/stack_text.json') as text:
-        stack_text = json.load(text)
+with open('./dataset/stack_text.json') as text:
+    stack_text = json.load(text)
 
 
 # def stack_text():
