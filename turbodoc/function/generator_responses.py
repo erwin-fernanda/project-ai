@@ -238,7 +238,7 @@ def response_PM(type_question, filtered_question1, target_answering):
 
     filtered_df = None
 
-    print(filtered_question1)
+    # print(filtered_question1)
 
     for i, word in enumerate(target_data):
         if i == 0:

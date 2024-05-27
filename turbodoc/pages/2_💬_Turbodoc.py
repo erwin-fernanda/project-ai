@@ -114,9 +114,6 @@ if state['login']:
         if 'target' not in state.keys():
             state.target = target1
 
-        print(target1)
-        print(target2)
-
         try:
             if target1 != 'Wrong':
                 if target1 == target2:
