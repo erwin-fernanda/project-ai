@@ -5,11 +5,10 @@ import time
 import numpy as np
 import pandas as pd
 
-from nlp_id.postag import PosTag
-from nlp_id.lemmatizer import Lemmatizer
-from nlp_id.stopword import StopWord
+from nlp_id import postag
+from nlp_id import stopword
 
-stopword = StopWord()
+stopwords = stopword.StopWord()
 
 try:
     dataset_CM = pd.read_excel(
@@ -97,7 +96,7 @@ except:
 #
 #         for col in list_dataset[target].columns:
 #             for statement in list_dataset[target][col].unique():
-#                 for word in stopword.remove_stopword(str(statement)).split(" "):
+#                 for word in stopwords.remove_stopword(str(statement)).split(" "):
 #                     stack += " " + word.lower()
 #
 #         stack_text_all[target] = stack
@@ -130,7 +129,7 @@ def check_question(message):
         'Wrong': 0
     }
 
-    clean_message = stopword.remove_stopword(message.replace("?", "").replace("|", ""))
+    clean_message = stopwords.remove_stopword(message.replace("?", "").replace("|", ""))
     # clean_message = message.replace("?", "")
 
     for word in clean_message.split(" "):
@@ -321,7 +320,7 @@ def generate_response(message):
     if type_question != 'Wrong':
         last_message = message.split("|")[-1]
 
-        postagger = PosTag()
+        postagger = postag.PosTag()
         tag_question1 = postagger.get_phrase_tag(message)
         tag_question2 = postagger.get_phrase_tag(last_message)
 
