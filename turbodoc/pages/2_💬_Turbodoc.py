@@ -109,25 +109,25 @@ if state['login']:
         # Add assistant response to chat history
         state.question += '|' + prompt
 
-        target1 = gr.check_question(state.question)
+        try:
+            target1 = gr.check_question(state.question.split('|')[-2])
+        except:
+            target1 = gr.check_question(state.prompt)
+
         target2 = gr.check_question(prompt)
 
-        if 'target' not in state.keys():
-            state.target = target1
-
-        # try:
-        if target1 != 'Wrong':
-            if target1 == target2:
-                forward_message = gr.generate_response(state.question)
+        try:
+            if target2 != 'Wrong':
+                if target1 == target2:
+                    forward_message = gr.generate_response(state.question)
+                else:
+                    forward_message = gr.generate_response(prompt)
+                    state.question = ''
             else:
-                forward_message = gr.generate_response(prompt)
-                state.question = ''
-                state.target = target2
-        else:
+                forward_message = gr.wrong_response()
+        except:
             forward_message = gr.wrong_response()
-        # except:
-        #     forward_message = gr.wrong_response()
-        #     state.question = "|".join(state.question.split("|")[:-1])
+            state.question = "|".join(state.question.split("|")[:-1])
 
         # Display assistant response in chat message container
         with st7:
@@ -143,4 +143,4 @@ if state['login']:
         )
 
 else:
-    st.error("Please sign-in on the Login Menu with the correct username and password")
+    st.error("Please sign-in on the menu login with the correct username and password")

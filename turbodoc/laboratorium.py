@@ -37,7 +37,7 @@ from nlp_id.lemmatizer import Lemmatizer
 # var = dataset_PM[dataset_PM['Task List'] == 'Periksa dan rekam speed magnetic pickup output voltage. Ini harus dilakukan dengan turbine running.']
 # print(var['Spare Part'].values)
 #
-message = "Kenapa AL_AP0612_Ch_B_Fault bisa terjadi?"
+message = "Apa yang perlu dipersiapan untuk start up?"
 response = gr.generate_response(message)
 
 print(response)

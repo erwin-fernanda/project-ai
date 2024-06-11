@@ -11,7 +11,8 @@
     "Tag Name": [
       "nama tag",
       "tag name",
-      "tag"
+      "tag",
+      "tag nama"
     ],
     "Description": [
       "deskripsi",
@@ -19,15 +20,15 @@
       "gambaran"
     ],
     "Reason": [
-        "kenapa",
-        "penyebab",
-        "mengapa",
-        "reason",
-        "cause",
-        "why",
-        "menyebabkan",
-        "sebab",
-        "terjadi"
+      "kenapa",
+      "penyebab",
+      "mengapa",
+      "reason",
+      "cause",
+      "why",
+      "menyebabkan",
+      "sebab",
+      "terjadi"
     ],
     "General Recommendation": [
         "rekomendasi",

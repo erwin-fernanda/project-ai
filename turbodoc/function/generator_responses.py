@@ -7,6 +7,8 @@ import pandas as pd
 
 from nlp_id import postag
 from nlp_id import stopword
+import nltk
+nltk.download('punkt')
 
 stopwords = stopword.StopWord()
 
@@ -190,7 +192,7 @@ def response_CM(type_question, filtered_question1, target_answering):
             data_stack = " ".join([str(val).lower() for val in dataset_CM[col].values])
 
             if data.lower() in data_stack and data.lower() not in target_data:
-                target_data.append(data)
+                target_data.append(data.lower())
 
                 try:
                     target_question.remove(col)
@@ -205,7 +207,10 @@ def response_CM(type_question, filtered_question1, target_answering):
             filtered_df = dataset_CM.loc[mask.any(axis=1)]
         else:
             mask = filtered_df.apply(lambda x: x.map(lambda s: search_string(s, word.lower())))
-            filtered_df = filtered_df.loc[mask.any(axis=1)]
+            any_true = mask.values.any()
+
+            if any_true:
+                filtered_df = filtered_df.loc[mask.any(axis=1)]
 
     ind = filtered_df.index.values
 
@@ -231,7 +236,7 @@ def response_PM(type_question, filtered_question1, target_answering):
             data_stack = " ".join([str(val).lower() for val in dataset_PM[col].values])
 
             if data.lower() in data_stack and data.lower() not in target_data:
-                target_data.append(data)
+                target_data.append(data.lower())
 
                 try:
                     target_question.remove(col)
@@ -240,15 +245,16 @@ def response_PM(type_question, filtered_question1, target_answering):
 
     filtered_df = None
 
-    # print(filtered_question1)
-
     for i, word in enumerate(target_data):
         if i == 0:
             mask = dataset_PM.apply(lambda x: x.map(lambda s: search_string(s, word.lower())))
             filtered_df = dataset_PM.loc[mask.any(axis=1)]
         else:
             mask = filtered_df.apply(lambda x: x.map(lambda s: search_string(s, word.lower())))
-            filtered_df = filtered_df.loc[mask.any(axis=1)]
+            any_true = mask.values.any()
+
+            if any_true:
+                filtered_df = filtered_df.loc[mask.any(axis=1)]
 
     ind = filtered_df.index.values
 
